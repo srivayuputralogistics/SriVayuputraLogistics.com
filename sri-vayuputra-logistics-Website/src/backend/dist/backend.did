@@ -1,0 +1,16 @@
+type ContactSubmission = 
+ record {
+   email: text;
+   id: nat;
+   message: text;
+   name: text;
+   phone: text;
+   requirement: text;
+   timestamp: int;
+ };
+service : {
+  getSubmissionCount: () -> (nat) query;
+  getSubmissions: () -> (vec ContactSubmission) query;
+  submitContact: (name: text, phone: text, email: text, requirement: 
+   text, message: text) -> (nat);
+}

@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/assets/fonts/SpaceGrotesk.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/assets/fonts/Satoshi.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --font-display: "Space Grotesk";
+    --font-body: "Satoshi";
+    --font-mono: "Geist Mono";
+    --radius: 0.375rem;
+
+    /* Deep navy corporate palette — #003366 adapted to OKLCH */
+    --background: 0.98 0.005 230;
+    --foreground: 0.18 0.025 240;
+    --card: 1.0 0.002 230;
+    --card-foreground: 0.18 0.025 240;
+    --popover: 1.0 0.002 230;
+    --popover-foreground: 0.18 0.025 240;
+
+    /* Deep navy blue — #003366 */
+    --primary: 0.28 0.095 248;
+    --primary-foreground: 0.98 0.005 240;
+
+    /* Slate grey secondary — #708090 */
+    --secondary: 0.93 0.012 230;
+    --secondary-foreground: 0.28 0.025 240;
+
+    --muted: 0.93 0.008 230;
+    --muted-foreground: 0.52 0.018 240;
+
+    /* Vivid blue accent for CTAs */
+    --accent: 0.45 0.14 248;
+    --accent-foreground: 0.98 0.005 240;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0.005 25;
+
+    --success: 0.58 0.16 150;
+    --warning: 0.7 0.14 85;
+
+    --border: 0.88 0.012 230;
+    --input: 0.88 0.012 230;
+    --ring: 0.28 0.095 248;
+
+    --chart-1: 0.28 0.095 248;
+    --chart-2: 0.48 0.12 248;
+    --chart-3: 0.65 0.14 248;
+    --chart-4: 0.52 0.015 240;
+    --chart-5: 0.7 0.08 240;
+
+    --sidebar: 0.96 0.008 230;
+    --sidebar-foreground: 0.18 0.025 240;
+    --sidebar-primary: 0.28 0.095 248;
+    --sidebar-primary-foreground: 0.98 0.005 240;
+    --sidebar-accent: 0.88 0.012 230;
+    --sidebar-accent-foreground: 0.28 0.025 240;
+    --sidebar-border: 0.88 0.012 230;
+    --sidebar-ring: 0.28 0.095 248;
+
+    /* Brand green for WhatsApp */
+    --whatsapp: #25d366;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .shadow-subtle {
+    box-shadow: 0 1px 4px 0 rgba(0, 30, 80, 0.08);
+  }
+
+  .shadow-elevated {
+    box-shadow: 0 4px 16px 0 rgba(0, 30, 80, 0.14);
+  }
+
+  .hover-lift {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s
+      cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px 0 rgba(0, 30, 80, 0.18);
+  }
+
+  .gradient-hero {
+    background: linear-gradient(
+      135deg,
+      oklch(0.28 0.095 248) 0%,
+      oklch(0.38 0.08 248) 50%,
+      oklch(0.22 0.06 245) 100%
+    );
+  }
+
+  .gradient-section {
+    background: linear-gradient(
+      180deg,
+      oklch(0.98 0.005 230) 0%,
+      oklch(0.95 0.01 230) 100%
+    );
+  }
+
+  .text-gradient-blue {
+    background: linear-gradient(
+      135deg,
+      oklch(0.55 0.14 248),
+      oklch(0.38 0.1 248)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .nav-link-active {
+    color: oklch(var(--primary));
+    font-weight: 600;
+  }
+}
